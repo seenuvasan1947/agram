@@ -1,0 +1,6 @@
+package com.example.agram
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
