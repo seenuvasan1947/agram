@@ -8,11 +8,7 @@ if (localPropertiesFile.exists()) {
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
-<<<<<<< HEAD
     throw  GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-=======
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
->>>>>>> 003caf48a393d8c1fecbec7735bf1d1a4c94e3ca
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -28,7 +24,6 @@ if (flutterVersionName == null) {
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-<<<<<<< HEAD
 def keystoreProperties = new Properties()
    def keystorePropertiesFile = rootProject.file('key.properties')
    if (keystorePropertiesFile.exists()) {
@@ -36,11 +31,6 @@ def keystoreProperties = new Properties()
    }
 android {
     compileSdkVersion 32
-=======
-
-android {
-    compileSdkVersion flutter.compileSdkVersion
->>>>>>> 003caf48a393d8c1fecbec7735bf1d1a4c94e3ca
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -58,24 +48,15 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-<<<<<<< HEAD
         applicationId "com.ptstechseenu.agram"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion 31
-=======
-        applicationId "com.example.agram"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
->>>>>>> 003caf48a393d8c1fecbec7735bf1d1a4c94e3ca
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        versionCode 2
+        versionName "1.0.2"
     }
 
-<<<<<<< HEAD
       signingConfigs {
        release {
            keyAlias keystoreProperties['keyAlias']
@@ -90,15 +71,6 @@ android {
        }
    }
 
-=======
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
-        }
-    }
->>>>>>> 003caf48a393d8c1fecbec7735bf1d1a4c94e3ca
 }
 
 flutter {
@@ -107,8 +79,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-<<<<<<< HEAD
     implementation 'com.google.android.material:material:1.9.0-alpha01'
-=======
->>>>>>> 003caf48a393d8c1fecbec7735bf1d1a4c94e3ca
 }

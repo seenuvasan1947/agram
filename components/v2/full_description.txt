@@ -1,0 +1,8 @@
+Agram app helps to find the combination of letters in that particular string
+and it is help full for education purpose
+<b>App features:</b>
+
+- Simple UI.
+- Light mode UI.
+- No login required.
+- Quick responce

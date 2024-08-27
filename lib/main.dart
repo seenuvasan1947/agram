@@ -39,6 +39,15 @@ class _FirstState extends State<First> {
     super.dispose();
   }
 
+  var result;
+  final anagram = Anagram();
+  List<String?> findanagram() {
+    final anagram = Anagram();
+    anagram.initialise();
+
+    return anagram.solve('$_word');
+  }
+
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
@@ -46,7 +55,7 @@ class _FirstState extends State<First> {
         appBar: AppBar(
           title: const Text('ANAGRAM APP'),
           centerTitle: true,
-          backgroundColor: Colors.red,
+          backgroundColor: Color.fromARGB(255, 35, 84, 141),
           actions: [
             IconButton(
                 onPressed: () {
@@ -60,7 +69,7 @@ class _FirstState extends State<First> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Second()),
+                    MaterialPageRoute(builder: (context) => const Fund()),
                   );
                 },
                 icon: const Icon(Icons.account_balance_rounded)),
@@ -89,6 +98,10 @@ class _FirstState extends State<First> {
               ElevatedButton(
                 child: const Text('ENTER'),
                 onPressed: () {
+                  // final anagram = Anagram();
+                  // anagram.initialise();
+                  // var result = anagram.solve('$_word');
+                  // var resultwords = findanagram();
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -133,6 +146,13 @@ class _FinderState extends State<Finder> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
+            leading: IconButton(
+          icon: const Icon(Icons.arrow_back_rounded),
+          tooltip: 'Menu Icon',
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
             title: const Text('ANAGRAM WORDS '),
             centerTitle: true,
             backgroundColor: Colors.pink,
@@ -142,27 +162,71 @@ class _FinderState extends State<Finder> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const Text('The All Posible Anagram Words for Given Word is'),
-                  Text('$result'),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Go back!'),
+
+                  const Divider(thickness: 5.7, color: Colors.indigo),
+                  // Text('$resultwords'),
+                  SelectableText(
+                    "$result",
+                    style: const TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                    textAlign: TextAlign.center,
+                    onTap: () => print('Tapped'),
+                    toolbarOptions: const ToolbarOptions(
+                      copy: true,
+                      selectAll: true,
+                      cut: true,
+                    ),
+                    showCursor: true,
+                    cursorWidth: 2,
+                    cursorColor: Colors.red,
+                    cursorRadius: const Radius.circular(5),
+                    //                     contextMenuBuilder: (context, editableTextState) {
+                    //   return PopupMenuButton(
+                    //     onSelected: (value) {
+                    //       // Handle the selected option.
+                    //     },
+                    //     itemBuilder: (context) {
+                    //       return [
+                    //         PopupMenuItem(
+                    //           child: Text('Copy'),
+                    //           value: 'copy',
+                    //         ),
+                    //         PopupMenuItem(
+                    //           child: Text('Cut'),
+                    //           value: 'cut',
+                    //         ),
+                    //         PopupMenuItem(
+                    //           child: Text('Paste'),
+                    //           value: 'paste',
+                    //         ),
+                    //       ];
+                    //     },
+                    //   );
+                    // },
                   ),
+                  // Text('$result'),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     Navigator.pop(context);
+                  //   },
+                  //   child: const Text('Go back!'),
+                  // ),
                 ]),
           )),
     );
   }
 }
 
-class Second extends StatefulWidget {
-  const Second({Key? key}) : super(key: key);
+class Fund extends StatefulWidget {
+  const Fund({Key? key}) : super(key: key);
 
   @override
-  State<Second> createState() => _SecondState();
+  State<Fund> createState() => _FundState();
 }
 
-class _SecondState extends State<Second> {
+class _FundState extends State<Fund> {
   @override
   Widget build(BuildContext context) {
     return (MaterialApp(
@@ -189,7 +253,7 @@ class _SecondState extends State<Second> {
             
             For more information contact developer
 
-            mobile No:6380243399
+            mobile No:9994745592
             
             Any way thank you for use my app
                '''),
@@ -238,9 +302,10 @@ class _GuideState extends State<Guide> {
 
             STEP1)ENTER THE STRING INTO THE TEXT BOX
             STEP2)PRESS ENTER
-            STEP3)ANTER SEE RESULT PRESS GO BACK BUTTON FOR RETURN HOME PAGE
+            STEP3)ENTER SEE RESULT PRESS GO BACK BUTTON
+                    FOR RETURN HOME PAGE
 
-              THANK YOU FOR USE MY APP
+              THANK YOU FOR USE MY APP!!!
                '''),
             ElevatedButton(
               onPressed: () {
